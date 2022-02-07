@@ -1,0 +1,188 @@
+.reviews {
+  padding-top: 80px;
+
+  @media screen and (min-width: 768px) {
+    padding-top: 120px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    padding-top: 125px;
+  }
+}
+.reviews__picture {
+  height: 85px;
+  width: 85px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 20px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    margin-bottom: 15px;
+  }
+}
+.reviews__title-tumb {
+  margin-bottom: 30px;
+  background-color: var(--reviews-bckgr-color);
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 25px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    margin-bottom: 15px;
+  }
+}
+.reviews__title {
+  position: relative;
+  max-width: 280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-left: solid 50px var(--reviews-bckgr-color);
+  border-right: solid 50px var(--reviews-bckgr-color);
+  border-top: solid 45px var(--reviews-bckgr-color);
+  border-bottom: solid 20px var(--reviews-bckgr-color);
+  @include font($fs: 12px, $fw: 500, $lh: 2.58);
+  text-align: center;
+  color: var(--third-text-color);
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 30px,
+    var(--border-color) 30px,
+    var(--border-color) 31px
+  );
+  z-index: 1;
+
+  @media screen and (min-width: 768px) {
+    max-width: 620px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 5px;
+    border-left: solid 50px var(--reviews-bckgr-color);
+    border-right: solid 50px var(--reviews-bckgr-color);
+    border-top: solid 45px var(--reviews-bckgr-color);
+    border-bottom: solid 28px var(--reviews-bckgr-color);
+
+    @include font($fs: 14px, $fw: 500, $lh: 2.14, $ls: 0.04em);
+  }
+  @media screen and (min-width: 1200px) {
+    @include font($fs: 16px, $fw: 500, $lh: 1.86, $ls: 0.04em);
+    max-width: 925px;
+    padding-left: 32px;
+    padding-right: 32px;
+    padding-bottom: 5px;
+    border-left: solid 55px var(--reviews-bckgr-color);
+    border-right: solid 55px var(--reviews-bckgr-color);
+    border-top: solid 45px var(--reviews-bckgr-color);
+    border-bottom: solid 30px var(--reviews-bckgr-color);
+  }
+}
+.reviews__title::before {
+  content: '';
+  display: block;
+  position: absolute;
+  z-index: -1;
+  left: 5px;
+  top: -15px;
+  width: 54px;
+  height: 40px;
+  background-image: url(./../images/reviews/comma.png);
+  background-size: 54px 40px;
+  color: var(--border-color);
+
+  @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+    background-image: url(./../images/reviews/comma-2x.png);
+  }
+
+  @media screen and (min-width: 768px) {
+    left: -5px;
+    top: -15px;
+  }
+}
+.reviews__name {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+  text-align: center;
+  @include font($fs: 14px, $fw: 500, $lh: 1.86);
+  color: var(--third-text-color);
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 35px;
+  }
+}
+.reviews__name::before {
+  content: '';
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 18px;
+  width: 40px;
+  height: 4px;
+  background-image: url(./../images/reviews/circles-3.svg);
+  background-repeat: no-repeat;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 15px;
+  }
+}
+.reviews__slider {
+  display: flex;
+  justify-content: center;
+}
+.reviews__icon:not(:first-child) {
+  margin-left: 18px;
+}
+
+/* Слайдер */
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
+.swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+  height: 12px;
+  width: 12px;
+  background-color: #d9d9d9;
+
+  &:not(:first-child) {
+    margin-left: 18px;
+  }
+}
+.swiper-pagination {
+  position: static;
+}
+.swiper-pagination-bullet-active {
+  height: 12px;
+  width: 12px;
+  background: url(./../images/reviews/home.svg);
+  background-size: 12px 12px;
+}
