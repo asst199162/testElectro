@@ -7,6 +7,7 @@
     <link rel="shortcut icon" href="/favicon.8003f84c.png" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css" integrity="sha512-ISS7cAi1PEhQ8jnbJpJZMd29NlhNj4AWYyLOSp2CE/CsHxTCu+r+t0D2yoJudVrd0/8fTVPUVDzY5Tvli75u/g==" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Titan+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
   <link rel="stylesheet" href="/src.e31bb0bc.css"></head>
   <body>
     <!-- Так добавляются фрагменты в главные HTML-файлы страниц. -->
@@ -329,32 +330,77 @@
 </section>
     <section class="reviews">
   <h3 class="hide-title">reviews</h3>
-  <div class="container">
-    <picture>
-      <source srcset="/customer-1.856ffb0a.png 1x,/customer-1-2x.64b17a13.png 2x" media="(min-width: 1200px)">
-      <source srcset="/customer-1-tablet.f40bd0b6.png 1x,/customer-1-tablet-2x.f7003d38.png 2x" media="(min-width: 768px)">
-      <source srcset="/customer-1-mobile.c404ca66.png 1x,/customer-1-mobile-2x.062c6787.png 2x" media="(max-width: 768px)">
-      <img src="/customer-1-mobile.c404ca66.png" alt="женщина" class="reviews__picture">
-    </picture>
-    <div class="reviews__title-tumb">
-      <p class="reviews__title">
-        Nullam viverra consectetuer. Quisque cursus et, porttitor risus. Aliquam sem. In hendrerit
-        nulla quam nunc, accumsan congue. Lorem ipsum primis in nibh vel risus.
-      </p>
+    <!-- Swiper -->
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <div class="container">
+          <picture>
+            <source srcset="/customer-1.856ffb0a.png 1x,/customer-1-2x.64b17a13.png 2x" media="(min-width: 1200px)">
+            <source srcset="/customer-1-tablet.f40bd0b6.png    1x,/customer-1-tablet-2x.f7003d38.png 2x" media="(min-width: 768px)">
+            <source srcset="/customer-1-mobile.c404ca66.png    1x,/customer-1-mobile-2x.062c6787.png 2x">
+            <img src="/customer-1-mobile.c404ca66.png" alt="женщина" class="reviews__picture">
+          </picture>
+          <div class="reviews__title-tumb">
+            <p class="reviews__title">
+              Nullam viverra consectetuer. Quisque cursus et, porttitor risus. Aliquam sem. In
+              hendrerit nulla quam nunc, accumsan congue. Lorem ipsum primis in nibh vel risus.
+            </p>
+          </div>
+          <p class="reviews__name">Emily, Los Angeles</p>
+         
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="container">
+          <picture>
+            <source srcset="/customer-1.856ffb0a.png 1x,/customer-1-2x.64b17a13.png 2x" media="(min-width: 1200px)">
+            <source srcset="/customer-1-tablet.f40bd0b6.png    1x,/customer-1-tablet-2x.f7003d38.png 2x" media="(min-width: 768px)">
+            <source srcset="/customer-1-mobile.c404ca66.png    1x,/customer-1-mobile-2x.062c6787.png 2x">
+            <img src="/customer-1-mobile.c404ca66.png" alt="женщина" class="reviews__picture">
+          </picture>
+          <div class="reviews__title-tumb">
+            <p class="reviews__title">
+              Nullam viverra consectetuer. Quisque cursus et, porttitor risus. Aliquam sem. In
+              hendrerit nulla quam nunc, accumsan congue. Lorem ipsum primis in nibh vel risus.
+            </p>
+          </div>
+          <p class="reviews__name">Emily, Los Angeles</p>
+         
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="container">
+          <picture>
+            <source srcset="/customer-1.856ffb0a.png 1x,/customer-1-2x.64b17a13.png 2x" media="(min-width: 1200px)">
+            <source srcset="/customer-1-tablet.f40bd0b6.png    1x,/customer-1-tablet-2x.f7003d38.png 2x" media="(min-width: 768px)">
+            <source srcset="/customer-1-mobile.c404ca66.png    1x,/customer-1-mobile-2x.062c6787.png 2x">
+            <img src="/customer-1-mobile.c404ca66.png" alt="женщина" class="reviews__picture">
+          </picture>
+          <div class="reviews__title-tumb">
+            <p class="reviews__title">
+              Nullam viverra consectetuer. Quisque cursus et, porttitor risus. Aliquam sem. In
+              hendrerit nulla quam nunc, accumsan congue. Lorem ipsum primis in nibh vel risus.
+            </p>
+          </div>
+          <p class="reviews__name">Emily, Los Angeles</p>
+         
+          </div>
+        </div>
+      </div>
+      <div class="swiper-pagination"></div>
     </div>
-    <p class="reviews__name">Emily, Los Angeles</p>
-    <div class="reviews__slider">
-      <svg width="12" height="12" class="reviews__icon">
-        <use href="/icon.bf21bd9a.svg#slider-home"></use>
-      </svg>
-      <svg width="12" height="12" class="reviews__icon">
-        <use href="/icon.bf21bd9a.svg#slider-point"></use>
-      </svg>
-      <svg width="12" height="12" class="reviews__icon">
-        <use href="/icon.bf21bd9a.svg#slider-point"></use>
-      </svg>
-    </div>
-  </div>
+
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>var swiper = new Swiper('.mySwiper', {
+  pagination: {
+    el: '.swiper-pagination'
+  }
+});</script>
+  
 </section>
 
     <section class="section section-contacts">
@@ -627,9 +673,6 @@
         
 </footer>
 
-
-
-
     <!-- Скрипт идёт последним в разметке. В нём уже подключен главный SASS-файл. -->
     <script src="/src.e31bb0bc.js"></script>
     <script src="/menu.234110a1.js"></script>
@@ -642,6 +685,7 @@
     <script src="/read-more1.c14a58cc.js"></script>
     <script src="/read-more2.69fa235c.js"></script>
     <script src="/read-more3.020e4d82.js"></script>
+
 
     <script src="/modal-buy.b54bd61e.js"></script>
     </body>

@@ -1,12 +1,12 @@
 {
-  "name": "project2022-icecream",
+  "name": "testElectro",
   "version": "1.1.0",
   "description": "",
   "main": "index.js",
-  "homepage": "https://asst199162.github.io/project2022-icecream",
+  "homepage": "https://github.com/asst199162/testElectro",
   "scripts": {
     "dev": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /project2022-icecream/"
+    "build": "parcel build src/*.html --public-url /testElectro/"
   },
   "repository": {
     "type": "git",

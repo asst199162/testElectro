@@ -117,83 +117,21 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
-var bundleURL = null;
-
-function getBundleURLCached() {
-  if (!bundleURL) {
-    bundleURL = getBundleURL();
-  }
-
-  return bundleURL;
-}
-
-function getBundleURL() {
-  // Attempt to find the URL of the current script and use that as the base URL
-  try {
-    throw new Error();
-  } catch (err) {
-    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
-
-    if (matches) {
-      return getBaseURL(matches[0]);
-    }
-  }
-
-  return '/';
-}
-
-function getBaseURL(url) {
-  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)?\/[^/]+(?:\?.*)?$/, '$1') + '/';
-}
-
-exports.getBundleURL = getBundleURLCached;
-exports.getBaseURL = getBaseURL;
-},{}],"../node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
-var bundle = require('./bundle-url');
-
-function updateLink(link) {
-  var newLink = link.cloneNode();
-
-  newLink.onload = function () {
-    link.remove();
+})({"modal-contacts.js":[function(require,module,exports) {
+(() => {
+  const refs = {
+    openReadBtn: document.querySelector('[data-read-open]'),
+    closeReadBtn: document.querySelector('[data-read-close]'),
+    read: document.querySelector('[data-read]')
   };
+  refs.openReadBtn.addEventListener('click', toggleRead);
+  refs.closeReadBtn.addEventListener('click', toggleRead);
 
-  newLink.href = link.href.split('?')[0] + '?' + Date.now();
-  link.parentNode.insertBefore(newLink, link.nextSibling);
-}
-
-var cssTimeout = null;
-
-function reloadCSS() {
-  if (cssTimeout) {
-    return;
+  function toggleRead() {
+    refs.read.classList.toggle('is-hidden');
   }
-
-  cssTimeout = setTimeout(function () {
-    var links = document.querySelectorAll('link[rel="stylesheet"]');
-
-    for (var i = 0; i < links.length; i++) {
-      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
-        updateLink(links[i]);
-      }
-    }
-
-    cssTimeout = null;
-  }, 50);
-}
-
-module.exports = reloadCSS;
-},{"./bundle-url":"../node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"sass/main.scss":[function(require,module,exports) {
-var reloadCSS = require('_css_loader');
-
-module.hot.dispose(reloadCSS);
-module.hot.accept(reloadCSS);
-},{"./../images/hero/lamp-header.png":[["lamp-header.483ba0f9.png","images/hero/lamp-header.png"],"images/hero/lamp-header.png"],"./../images/products/icecream-1-mobile.png":[["icecream-1-mobile.da85476a.png","images/products/icecream-1-mobile.png"],"images/products/icecream-1-mobile.png"],"./../images/products/icecream-1-mobile-2x.png":[["icecream-1-mobile-2x.c9626168.png","images/products/icecream-1-mobile-2x.png"],"images/products/icecream-1-mobile-2x.png"],"./../images/products/icecream-1-tablet.png":[["icecream-1-tablet.cc494dd8.png","images/products/icecream-1-tablet.png"],"images/products/icecream-1-tablet.png"],"./../images/products/icecream-1-tablet-2x.png":[["icecream-1-tablet-2x.305d3420.png","images/products/icecream-1-tablet-2x.png"],"images/products/icecream-1-tablet-2x.png"],"./../images/products/icecream-1.png":[["icecream-1.f82f8d3a.png","images/products/icecream-1.png"],"images/products/icecream-1.png"],"./../images/products/icecream-1-2x.png":[["icecream-1-2x.70370525.png","images/products/icecream-1-2x.png"],"images/products/icecream-1-2x.png"],"./../images/products/icecream-2-mobile.png":[["icecream-2-mobile.a4385af9.png","images/products/icecream-2-mobile.png"],"images/products/icecream-2-mobile.png"],"./../images/products/icecream-2-mobile-2x.png":[["icecream-2-mobile-2x.f3628a43.png","images/products/icecream-2-mobile-2x.png"],"images/products/icecream-2-mobile-2x.png"],"./../images/products/icecream-2-tablet.png":[["icecream-2-tablet.59c5c377.png","images/products/icecream-2-tablet.png"],"images/products/icecream-2-tablet.png"],"./../images/products/icecream-2-tablet-2x.png":[["icecream-2-tablet-2x.f38429fb.png","images/products/icecream-2-tablet-2x.png"],"images/products/icecream-2-tablet-2x.png"],"./../images/products/icecream-2.png":[["icecream-2.e9e47adc.png","images/products/icecream-2.png"],"images/products/icecream-2.png"],"./../images/products/icecream-2-2x.png":[["icecream-2-2x.2ade6b87.png","images/products/icecream-2-2x.png"],"images/products/icecream-2-2x.png"],"./../images/products/icecream-3-mobile.png":[["icecream-3-mobile.23c00c89.png","images/products/icecream-3-mobile.png"],"images/products/icecream-3-mobile.png"],"./../images/products/icecream-3-mobile-2x.png":[["icecream-3-mobile-2x.22fcd336.png","images/products/icecream-3-mobile-2x.png"],"images/products/icecream-3-mobile-2x.png"],"./../images/products/icecream-3-tablet.png":[["icecream-3-tablet.6b172c4b.png","images/products/icecream-3-tablet.png"],"images/products/icecream-3-tablet.png"],"./../images/products/icecream-3-tablet-2x.png":[["icecream-3-tablet-2x.bcbbfab1.png","images/products/icecream-3-tablet-2x.png"],"images/products/icecream-3-tablet-2x.png"],"./../images/products/icecream-3.png":[["icecream-3.85d63215.png","images/products/icecream-3.png"],"images/products/icecream-3.png"],"./../images/products/icecream-3-2x.png":[["icecream-3-2x.124ce9d0.png","images/products/icecream-3-2x.png"],"images/products/icecream-3-2x.png"],"./../images/products/more-point.png":[["more-point.4f6ccde7.png","images/products/more-point.png"],"images/products/more-point.png"],"./../images/products/more-point-2x.png":[["more-point-2x.e81fdc17.png","images/products/more-point-2x.png"],"images/products/more-point-2x.png"],"./../images/about/about-bg-mobile.png":[["about-bg-mobile.01554fd0.png","images/about/about-bg-mobile.png"],"images/about/about-bg-mobile.png"],"./../images/about/about-bg-mobile-2x.png":[["about-bg-mobile-2x.23217ac7.png","images/about/about-bg-mobile-2x.png"],"images/about/about-bg-mobile-2x.png"],"./../images/about/about-bg.png":[["about-bg.1216e298.png","images/about/about-bg.png"],"images/about/about-bg.png"],"./../images/about/about-bg-2x.png":[["about-bg-2x.2cf18441.png","images/about/about-bg-2x.png"],"images/about/about-bg-2x.png"],"./../images/advantages/milk-cow.png":[["milk-cow.77e6bdc7.png","images/advantages/milk-cow.png"],"images/advantages/milk-cow.png"],"./../images/advantages/milk-cow-2x.png":[["milk-cow-2x.6682212e.png","images/advantages/milk-cow-2x.png"],"images/advantages/milk-cow-2x.png"],"./../images/advantages/apple.png":[["apple.53cb491c.png","images/advantages/apple.png"],"images/advantages/apple.png"],"./../images/advantages/apple-2x.png":[["apple-2x.51b0926d.png","images/advantages/apple-2x.png"],"images/advantages/apple-2x.png"],"./../images/advantages/candy.png":[["candy.001e4571.png","images/advantages/candy.png"],"images/advantages/candy.png"],"./../images/advantages/candy-2x.png":[["candy-2x.32d99c8d.png","images/advantages/candy-2x.png"],"images/advantages/candy-2x.png"],"./../images/reviews/comma.png":[["comma.11cc9afd.png","images/reviews/comma.png"],"images/reviews/comma.png"],"./../images/reviews/comma-2x.png":[["comma-2x.3fb7fe0d.png","images/reviews/comma-2x.png"],"images/reviews/comma-2x.png"],"./../images/reviews/circles-3.svg":[["circles-3.05a4ddfa.svg","images/reviews/circles-3.svg"],"images/reviews/circles-3.svg"],"./../images/reviews/home.svg":[["home.e6ec330e.svg","images/reviews/home.svg"],"images/reviews/home.svg"],"./../images/contacts/contact-bg.png":[["contact-bg.de22c128.png","images/contacts/contact-bg.png"],"images/contacts/contact-bg.png"],"./../images/contacts/contact-bg-2x.png":[["contact-bg-2x.ce5b781b.png","images/contacts/contact-bg-2x.png"],"images/contacts/contact-bg-2x.png"],"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"index.js":[function(require,module,exports) {
-"use strict";
-
-require("./sass/main.scss");
-},{"./sass/main.scss":"sass/main.scss"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+})();
+},{}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -221,7 +159,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54539" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49893" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -397,5 +335,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","index.js"], null)
-//# sourceMappingURL=/src.e31bb0bc.js.map
+},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","modal-contacts.js"], null)
+//# sourceMappingURL=/modal-contacts.e5edf594.js.map
